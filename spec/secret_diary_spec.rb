@@ -1,4 +1,5 @@
 require 'secret_diary'
+require 'diary_entries'
 
 # Initially the `SecretDiary` class is locked,
 # meaning `add_entry` and
@@ -9,6 +10,10 @@ describe SecretDiary do
   it "diary status is locked" do
     expect(subject.diary_status).to eq false
   end
+
+end
+
+describe DiaryEntries do
 
   it "add entry produces error if accessed when diary status is locked" do
     expect(subject.add_entry).to eq ("error") if (subject.diary_status) == false
